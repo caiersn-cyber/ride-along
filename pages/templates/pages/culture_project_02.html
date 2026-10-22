@@ -1,0 +1,87 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block extra_head %}
+<!-- 自定义样式 -->
+<link href="{% static 'pages/styles/about.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block extra_nav %}border-bottom shadow-lg{% endblock %}
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <div class="container-fluid hero">
+        <div class="container hero-contnet">
+            <h1>在春天，遇见“黔”山万水</h1>
+        </div>
+<!--        <div class="banner-pic"></div>-->
+    </div>
+    <!-- End Hero Section -->
+    <br>
+    <!--    start add story-->
+    <div class="container">
+        <div class="row">
+            <div class="col-3" style="border-right:1px solid #bbbebb">
+                <h4>黔西南</h4>
+                <h5>兴义·基隆堡</h5>
+                <h5>兴义·万峰林</h5>
+                <br>
+                <h4>贵阳</h4>
+                <h5>贵安·樱花园</h5>
+            </div>
+            <div class="col-9">
+                <h2>自驾游贵州 | 六天两千公里，遇见“黔”山万水多彩的春</h2>
+        <br>
+        <p>
+            贵州 ，一个没有平原的山地省份。也正是因为大山绵延， 贵州 这片土地依旧青山绿水，这里的人们依然纯朴善良。而 贵州 对于我们来说一点也不陌生，生在 云南 和 四川 的我们，“云贵川是一家”这句话从小听到大。我们说着相似的方言，吃着类似口味的食物，也有着很相同的生活方式。如果非要说我们不一样的？我想应该就是你叫“ 贵州 ”，我们叫“ 云南 ”和“ 四川 ”吧。
+        </p>
+        <br>
+        <h3>DAY1. 从昆明到兴义，邂逅梦幻的童话城堡</h3>
+        <p>
+            从 昆明 一路自驾了三个半小时，我们到达了这次旅途的第一站， 黔西南 州的州府- 兴义 。    <br>
+            好早之前，就曾在网上看到过这里一个湖心城堡的照片，那简直就是女生梦中的童话世界。于是，来到 兴义 当然要去 吉隆 堡圆梦。<br>
+            吉隆 堡位于 兴义 市的万峰湖上，距离万峰林景区20分钟车程，是一个既小众又宝藏的地方。有人说这里是 贵州 的“天鹅堡”，但我想说去过天鹅堡的我们甚至觉得 吉隆 堡比天鹅堡还要美。<br>
+        </p>
+                <img src="{% static '\pages\pro_image\2_1.jpeg' %}" class="rounded mx-auto d-block" alt="">
+        <br>
+        <h3>DAY2. 走进避世田园般的万峰林</h3>
+        <p>
+            明代著名旅行家徐霞客曾写道“天下山峰何其多，惟有此处峰成林”。<br>
+            万峰林，就如它的名字一样，绵延200多公里、宽30-50公里，是国内最大、最典型的喀斯特峰林。群山之间、鸟语花香，这里远离城市的喧闹，真正算得上是一片世外 桃源 。
+        </p>
+        <p>
+            来万峰林游玩有两种方式，一种是乘坐景区的观光车，在半山上俯瞰万峰林景区，大概耗时1-2小时。另一种方式就是住在万峰林里的民宿，白天自驾或者租个自行车，穿梭在田野之中，近距离的感受田园生活。如果时间充裕，建议两种都选择，既可以游览山水，又能沉浸式体验向往的田园生活。
+        </p>
+        <p>
+            每年2月，万峰林是 贵州 最早进入春天的地方。当国内好多地方还在大雪纷飞，万峰林的油菜花田正满满盛开，犹如一片金色的海洋。这里的油菜花花期很长，从2月一直持续到3月中下旬都有，是赏春踏青的好去处。
+        </p>
+                <img src="{% static '\pages\pro_image\2_2.jpeg' %}" class="rounded mx-auto d-block" alt="">
+        <br>
+        <h3>DAY3. 蓝色星球上最美的樱花园</h3>
+        <p>
+            前一晚我们住在 安顺 的平坝区，所以一到早就起来开车前往半小时车程的平坝樱花园。<br>
+            平坝樱花以前叫平坝农场，现在叫贵安樱花园。它坐落在贵 安新 区的红枫湖畔，占地24000余亩，是全世界最大的樱花园。每年3月中旬，当平坝万亩樱花盛开，这里便成了国内炙手可热的 春日 赏花游玩地。
+        </p>
+        <p>
+            整个樱花园的面积很大，如果想步行游玩还挺费力的。如果是来看早樱的，有几个位置可以去打卡，第一个是山上的观景台，这个需要从樱花园正门进入，乘坐观光车可以到达。第二个是音关的茶园，这里可以直接开车，导航“音关”即可，附近有停车场，这里可以看到茶园、风车和樱花。
+        </p>
+             <img src="{% static '\pages\pro_image\2_3.jpeg' %}" class="rounded mx-auto d-block" alt="">
+        <br>
+        <h3>DAY.4 驾车驶入金色花海里</h3>
+        <p>
+            如果说要在贵阳周边找一处赏油菜花的好去处，那么黔南州贵定县的金海雪山一定要去。
+        </p>
+                <img src="{% static '\pages\pro_image\2_4.jpeg' %}" class="rounded mx-auto d-block" alt="">
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <!--    end add story-->
+     <br>
+
+    <footer>
+        <!-- 版权申明 -->
+        <img alt="版权申明" src="{% static 'pages/images/copyright.png' %}"/>
+    </footer>
+
+</main>
+{% endblock content %}

@@ -1,0 +1,100 @@
+@import url(themes.css);
+
+#route .route-item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 3rem;
+	/* width: 80%; */
+	/* margin: 20px auto; */
+	/* overflow: hidden; */
+	/* border-radius: 10px; */
+}
+
+#route .route-info {
+	/* padding: 30px; */
+	flex-basis: 35%;
+	height: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	/* background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); */
+	/* color: white; */
+}
+
+.route-form-wrap {
+    background-color: var(--white);
+}
+
+#route .route-img {
+	flex-basis: 65%;
+	overflow: hidden;
+	position: relative;
+
+	/* 地图确定宽高 */
+	min-height: 480px;
+	width: 100%;
+}
+
+/* #route .route-img:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	opacity: 0.7;
+} */
+
+#route .route-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: 0.3s ease transform;
+}
+
+#route .route-item:hover .route-img img {
+	transform: scale(1.1);
+}
+
+#route input {
+	background-color: var(--white);
+}
+
+/* Media Query For Tablet */
+@media screen and (min-width: 992px) {
+
+	/* Route Section */
+	#route .route-item {
+		flex-direction: row;
+	}
+
+	#route .route-item {
+		/* height: 400px; */
+		margin: 0;
+		width: 100%;
+		border-radius: 0;
+	}
+
+	#route .route-info {
+		height: 100%;
+	}
+
+	#route .route-img {
+		height: 500px;
+	}
+
+	/* End Route Section */
+}
+
+/* End Media Query For Tablet */
+
+
+
+/* Media Query For Desktop */
+@media screen and (min-width: 1200px) {}
+
+/* End  Media Query For Desktop */

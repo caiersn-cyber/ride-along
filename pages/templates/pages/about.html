@@ -1,0 +1,152 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block extra_head %}
+<!-- 自定义样式 -->
+<link href="{% static 'pages/styles/about.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block extra_nav %}border-bottom shadow-lg{% endblock %}
+{% block about_link %}active{% endblock %}
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <div class="container-fluid hero">
+        <div class="container hero-contnet">
+            <h1>关于我们</h1>
+        </div>
+<!--        <div class="banner-pic"></div>-->
+    </div>
+    <!-- End Hero Section -->
+
+    <div class="container my-5">
+        <p>
+            本项目致力于打造一款以公益帮扶与人文旅游为核心，介绍中国贵州地区旅游景点与文化故事的网站，名为“一路黔行”，寓意在多彩的贵州大地，用户可以肆意畅游。<br/><br/>
+            网站将为用户全面立体生动地展示中国贵州地区的地理风貌与风土人情，为贵州需要帮扶且拥有美景但鲜为人知的地区和景点进行宣传，希望搭载当下旅游业复苏发展快车，通过网站宣传将贵州地区拉近人们的视线，以景唤人，以情动人，助力当地旅游经济发展，提升当地整体发展水平，巩固党和国家脱贫攻坚的历史成果。
+        </p>
+    </div>
+
+    <!-- About Section -->
+    <section class="about my-5" id="abouts">
+        <div class="abouts container">
+            <h2 class="text-center">关于我们</h2>
+            <div class="about-content">
+                <div class="about-item">
+                    <div class="icon">
+                        <img src="{% static 'pages/images/2/icons8-roadmap-100.png' %}"/>
+                    </div>
+                    <h3 class="text-start pb-3 border-bottom">
+                        智慧旅行 <br/>
+                        自动规划旅行路线
+                    </h3>
+                    <p class="text-start">
+                        根据用户的出发地、目的地、旅行天数、各地推荐权重、各地游玩天数、交通工具选择等参数规划一条旅行路线，实现真正的“智慧旅行”。
+                    </p>
+                </div>
+                <div class="about-item">
+                    <div class="icon">
+                        <img src="{% static 'pages/images/2/icons8-trust-100.png' %}"/>
+                    </div>
+                    <h3 class="text-start pb-3 border-bottom">
+                        关注扶贫 <br/>
+                        发现小众的美丽
+                    </h3>
+                    <p class="text-start">
+                        在“旅游+扶贫”的大背景下，旅游扶贫是实现乡村振兴的重要抓手，在这些风景秀美的贫困村，用户可以远离城市的喧嚣，感受到来自贵州古朴村落的烟火气，探寻只属于自己的假日时光。
+                    </p>
+                </div>
+                <div class="about-item">
+                    <div class="icon">
+                        <img src="{% static 'pages/images/2/icons8-share-100.png' %}"/>
+                    </div>
+                    <h3 class="text-start pb-3 border-bottom">
+                        分享故事 <br/>
+                        诉说旅途中的奇遇
+                    </h3>
+                    <p>
+                        你既可以是旅游的参与者，体验者，也可以是网站图片及故事的创作者，在旅行中的美景趣事，所见所闻，都可以拿起手机记录下来，选出你心中最美的景点，开启黔行之旅。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End About Section -->
+
+    <!-- Developer Section -->
+    <section class="my-5" id="developer">
+        <div class="developer container">
+            <div class="col-left">
+                <div class="developer-text">
+                    <h2>开发者介绍</h2>
+                    <p>
+                        我们是来自北京邮电大学数字媒体与设计艺术学院的同学，在这里，你将在旅途中感受我们思维的创新与设计的魅力，如果你有新的想法与创意，非常欢迎你与我们联系，我们一起创造独一无二的专属之旅。
+                    </p>
+                </div>
+            </div>
+            <div class="col-right">
+                <div class="container">
+                    <div class="box">
+                        <div class="imgBx">
+                            <img alt="" class="rounded" src="{% static 'pages/images/7/pic1.jpg' %}">
+                        </div>
+                        <div class="content">
+                            <h3>杨力凡</h3>
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read more</a> -->
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="imgBx">
+                            <img alt="" class="rounded" src="{% static 'pages/images/7/pic2.jpg' %}">
+                        </div>
+                        <div class="content">
+                            <h3>王子一</h3>
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read more</a> -->
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="imgBx">
+                            <img alt="" class="rounded" src="{% static 'pages/images/7/pic3.jpg' %}">
+                        </div>
+                        <div class="content">
+                            <h3>尹欣玥</h3>
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read more</a> -->
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="imgBx">
+                            <img alt="" class="rounded" src="{% static 'pages/images/7/pic4.jpg' %}">
+                        </div>
+                        <div class="content">
+                            <h3>张家琪</h3>
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read more</a> -->
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="imgBx">
+                            <img alt="" class="rounded" src="{% static 'pages/images/7/pic5.jpg' %}">
+                        </div>
+                        <div class="content">
+                            <h3>牛芷漫</h3>
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read more</a> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Developer Section -->
+
+    <footer>
+        <!-- 版权申明 -->
+        <img alt="版权申明" src="{% static 'pages/images/copyright.png' %}"/>
+    </footer>
+</main>
+{% endblock content %}

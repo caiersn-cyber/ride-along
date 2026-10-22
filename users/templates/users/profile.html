@@ -1,0 +1,40 @@
+{% extends "users/base.html" %}
+<!--{% load static %}-->
+{% load crispy_forms_tags %}
+{% block extra_nav %}border-bottom shadow{% endblock %}
+{% block extra_head %}
+<link href="{% static 'users/styles/profile.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block content %}
+<div class="container my-4" id="profile">
+    <div class="tab rounded border shadow">
+        <div class="media-body">
+            <div class="my-4">
+                <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+            </div>
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+        </div>
+        <div class="media-menu">
+            <a class="side-item active" href="{% url 'profile' %}">
+                编辑个人信息
+            </a>
+            <a class="side-item" href="{% url 'my_trip' %}">我的旅程</a>
+            <a class="side-item" href="{% url 'my_story' %}">我的故事</a>
+        </div>
+    </div>
+    <div class="tabcontent ml-4">
+        <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend><h3>编辑个人信息</h3></legend>
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-dark" type="submit">更新</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,72 @@
+@import url(themes.css);
+
+/* About Section */
+
+#abouts .about-content {
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+#abouts .about-item {
+	flex-basis: 80%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	padding: 30px;
+	border-radius: 10px;
+	background-image: url(../images/img-1.png);
+	background-size: cover;
+	margin: 10px 5%;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#abouts .about-item::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	/* background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); */
+	background-color: var(--blue);
+	opacity: 0.9;
+	z-index: -1;
+}
+
+#abouts .about-item:hover::after {
+
+	/* background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); */
+	background-image: linear-gradient(60deg, var(--blue) 0%, var(--white) 100%);
+
+}
+
+#abouts .about-content .icon {
+	height: 80px;
+	width: 80px;
+	margin-bottom: 20px;
+}
+
+#abouts .about-item h3 {
+	color: var(--white);
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+#abouts .about-item p {
+	color: #eff1ecb0;
+}
+
+/* End About Section */
+
+@media screen and (min-width: 992px) {
+	#abouts .about-content .about-item {
+		flex-basis: 28%;
+		margin: 1.5%;
+	}
+}

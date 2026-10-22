@@ -1,0 +1,58 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block extra_head %}
+<!-- 自定义样式 -->
+<link href="{% static 'pages/styles/about.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block extra_nav %}border-bottom shadow-lg{% endblock %}
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <div class="container-fluid hero">
+        <div class="container hero-contnet">
+            <h1>茂兰：国家级自然保护区</h1>
+        </div>
+<!--        <div class="banner-pic"></div>-->
+    </div>
+    <!-- End Hero Section -->
+    <br>
+    <!--    start add story-->
+    <div class="container">
+        <div class="row">
+            <div class="col-3" style="border-right:1px solid #bbbebb">
+                <h4>黔南布依族苗族自治州</h4>
+                <h5>206省道</h5>
+            </div>
+            <div class="col-9">
+                <h2>荔波茂兰：这里不仅是国家级自然保护区，还是游客徒步的天堂 </h2>
+        <br>
+        <p>
+            贵州茂兰国家级自然保护区位于贵州省黔南州荔波县，毗邻广西木伦国家级自然保护区。保护区面积21285公顷，核心区5827公顷，涉及立化、永康、洞塘、翁昂、捞村、驾欧、瑶山、甲良八乡镇，21个村组，居住近8000人。有一级保护植物200余种，二级保护植物有等200余种，茂兰特有种40余种。保护区内脊椎动物近400种。1988年5月，茂兰成为国家级自然保护区，1996年4月，加入联合国教科文组织国际人与生物圈保护区网络（MAB），成为世界生物圈保护区。
+        </p>
+        <br>
+        <p>
+            茂兰为典型热带喀斯特的峰丛漏斗和峰丛洼地地貌。圆锥状的喀斯特峰密集成丛状，这些喀斯特锥峰有共同的山体基座，峰高度相差较小，所以称为“峰丛”。在峰丛的包围中，有四周封闭、底部平坦的较大区域，称为“洼地”。茂兰的主要地貌是“峰丛洼地“组合。要看峰丛森林，最佳地是茂兰的石上森林，这里有个在山顶上的观景台，峰丛尽收眼底。石上观景台海拔高度为956米，要登上观景台，就要登1600级台阶。
+        </p>
+        <br>
+        <p>
+            在万千峰丛的包围中，散落着一个个村寨和田园，这些村寨都坐落在峰丛间的洼地。穿梭在喀斯特洼地，田园镶嵌在绿色的峰丛之间，水墨丹青的画卷，恬淡宁静的田园风光。其中最美的是必茫田园和溪鸟田园风光。
+        </p>
+        <br>
+        <p>
+            青龙涧、青龙瀑、清龙潭、五眼桥、螃蟹沟、拉滩瀑布、黄杨沟位于茂兰景区的东部，这里的森林和河流成为最佳组合，和小七孔的风光十分相似。青龙潭长1000米，潭水冰冽，沟深林茂、树木婆娑、怪石峥嵘。青龙潭尽头便是美丽的青龙瀑布。这些地方是徒步的经典路线。
+        </p>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <!--    end add story-->
+     <br>
+
+    <footer>
+        <!-- 版权申明 -->
+        <img alt="版权申明" src="{% static 'pages/images/copyright.png' %}"/>
+    </footer>
+
+</main>
+{% endblock content %}

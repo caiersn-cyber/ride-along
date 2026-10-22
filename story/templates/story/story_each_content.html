@@ -1,0 +1,80 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block extra_head %}
+<!-- 自定义样式 -->
+<link href="{% static 'pages/styles/about.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block extra_nav %}border-bottom shadow-lg{% endblock %}
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <div class="container-fluid hero">
+        <div class="container hero-contnet">
+            <h1>{{ story.title }}</h1>
+        </div>
+<!--        <div class="banner-pic"></div>-->
+    </div>
+    <!-- End Hero Section -->
+    <br>
+    <!--    start add story-->
+    <div class="container">
+    {% load crispy_forms_tags %}
+        <div>
+
+    {{ story.story_content | safe }}
+    <img src="{{ story.image.url }}" class="rounded mx-auto d-block" alt="{{ story.user }}'s image">
+        <br>
+            <br>
+<!--    <h3>{{ story.user }}</h3>-->
+<!--    <span><p>更新于：{{ story.modify_date }}</p></span>-->
+<!--    <span><p>关于{{ story.location }}</p>  </span>-->
+<!--    < a href="{% url 'story_update' story.pk %}">编辑</ a>-->
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+        <div class="container text-center">
+  <div class="row align-items-center">
+    <div class="col">
+      <h4>{{ story.user }}</h4>
+    </div>
+    <div class="col">
+    <p>{{ story.modify_date }}</p>
+    </div>
+    <div class="col">
+        <p>{{ story.location }}</p>
+    </div>
+  </div>
+</div>
+                <hr />
+            <br>
+    </div>
+
+        <div class="d-grid gap-2 col-3 mx-auto">
+
+            <a href="{% url 'story_update' story.pk %}" class="btn btn-primary">编辑</a>
+        <a href="{% url 'story_delete' story.pk %}" class="btn btn-outline-danger">删除</a>
+<a href="{% url 'story_add' %}" class="btn btn-outline-secondary">创建新故事</a>
+</div>
+
+            <div>
+
+
+
+    </div>
+
+    <br>
+    <hr />
+</div>
+
+
+
+    </div>
+    <!--    end add story-->
+     <br>
+
+    <footer>
+        <!-- 版权申明 -->
+        <img alt="版权申明" src="{% static 'pages/images/copyright.png' %}"/>
+    </footer>
+
+</main>
+{% endblock content %}

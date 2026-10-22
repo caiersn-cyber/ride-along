@@ -1,0 +1,12 @@
+{% extends 'users/base.html' %}
+{% block extra_nav %}border-bottom shadow{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h2>您已登出</h2>
+    <small>
+        <a href="{% url 'login' %}">再次登录</a>
+    </small>
+</div>
+</div>
+{% endblock content %}

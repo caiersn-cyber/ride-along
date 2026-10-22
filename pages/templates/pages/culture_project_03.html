@@ -1,0 +1,55 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block extra_head %}
+<!-- 自定义样式 -->
+<link href="{% static 'pages/styles/about.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block extra_nav %}border-bottom shadow-lg{% endblock %}
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <div class="container-fluid hero">
+        <div class="container hero-contnet">
+            <h1>紫云格凸河景区</h1>
+        </div>
+<!--        <div class="banner-pic"></div>-->
+    </div>
+    <!-- End Hero Section -->
+    <br>
+    <!--    start add story-->
+    <div class="container">
+        <div class="row">
+            <div class="col-3" style="border-right:1px solid #bbbebb">
+                <h4>安顺紫云县</h4>
+                <h5>格凸河</h5>
+            </div>
+            <div class="col-9">
+                <h2>探秘格凸河：汇集贵州喀斯特精髓，户外运动天堂</h2>
+        <br>
+        <p>
+            格凸河位于安顺市的紫云苗族布依族自治区，景区占地70平方公里，由大穿洞、大河、小穿洞、黄家湾4个景区组成，距离安顺约103公里，离贵阳主城164公里，宜自驾前往，紫云客车站每天也有定点的车次到达景区。
+        </p>
+        <p>
+            流水对大地经年累月的溶蚀，形成了巨大的洞穴和地下水系统，也造就了格凸河类型多样、风格鲜明的喀斯特地貌特征。洞穴，盲谷，暗河，绝壁，神光，是这里的游览关键词。
+        </p>
+                <br>
+                <p>
+                    格凸河的洞大大小小，其中最值得一看的就是大穿洞。大穿洞又叫燕子洞，燕王宫，因洞内有数万只燕子翻飞栖息而出名。每年农历清明到重阳，你都可以看到燕群在这里清晨飞出，日落归巢的“万燕齐飞”景象。<br>
+                    洞高116米，宽25米，入口犹如一道巨型的天然拱门，碧绿的格凸河河水在此处轰然入地成为暗河，波涛汹涌。
+                </p>
+                <img alt="" class="rounded mx-auto d-block" src="{% static '\pages\pro_image\3_1.jpg' %}">
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <!--    end add story-->
+     <br>
+
+    <footer>
+        <!-- 版权申明 -->
+        <img alt="版权申明" src="{% static 'pages/images/copyright.png' %}"/>
+    </footer>
+
+</main>
+{% endblock content %}

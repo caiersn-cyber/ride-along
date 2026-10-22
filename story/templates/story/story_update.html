@@ -1,0 +1,63 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block extra_head %}
+<!-- 自定义样式 -->
+<link href="{% static 'pages/styles/about.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block extra_nav %}border-bottom shadow-lg{% endblock %}
+{% block content %}
+<main>
+
+    <!-- Hero Section -->
+    <div class="container-fluid hero">
+        <div class="container hero-contnet">
+            <h1>故事编辑</h1>
+        </div>
+<!--        <div class="banner-pic"></div>-->
+    </div>
+    <!-- End Hero Section -->
+    <br>
+    <!--    start add story-->
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="title"><h5>故事标题：</h5></label>
+          <input type="text" class="form-control" id="title" name="title">
+        </div>
+            <br>
+        <div class="form-group">
+          <label for="story_absrtact"><h5>故事摘要：</h5></label>
+          <input type="text" class="form-control" id="story_absrtact" name="story_absrtact">
+        </div>
+            <br>
+        <div class="form-group">
+          <label for="story_content"><h5>故事内容：</h5></label>
+          <textarea class="form-control" id="story_content" name="story_content"></textarea>
+        </div>
+            <br>
+        <div class="form-group">
+          <label for="location"><h5>关联地点：</h5></label>
+          <input type="text" class="form-control" id="location" name="location">
+        </div>
+            <br>
+        <div class="mb-3">
+          <label for="image" class="form-label"><h5>相关图片：</h5></label>
+          <input class="form-control" type="file" id="image" multiple>
+        </div>
+
+        <button type="submit" class="btn btn-primary">更 新</button>
+      </form>
+        <br>
+
+    </div>>
+    <!--    end add story-->
+
+
+    <footer>
+        <!-- 版权申明 -->
+        <img alt="版权申明" src="{% static 'pages/images/copyright.png' %}"/>
+    </footer>
+
+</main>
+{% endblock content %}

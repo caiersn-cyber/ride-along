@@ -1,0 +1,288 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block extra_head %}
+<style>
+<!--    select.form-select {-->
+<!--        border: 1px solid #4e4a67;-->
+<!--        background-color: #eff1ec;-->
+<!--        color: #4e4a67;-->
+<!--    }-->
+
+<!--    .colored {-->
+<!--        padding: 3px;-->
+<!--        color: #000;-->
+<!--&lt;!&ndash;        background-color: #000;&ndash;&gt;-->
+<!--    }-->
+</style>
+<!-- jQuery -->
+<script crossorigin="anonymous"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- HTMX -->
+<script src="https://unpkg.com/htmx.org@1.6.0"></script>
+
+<!-- Arrow -->
+<link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+        rel="stylesheet"
+/>
+
+<!-- Swiper CSS -->
+<link href="{% static 'pages/styles/swiper-bundle.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'pages/styles/card-slider.css' %}" rel="stylesheet"/>
+
+<link href="{% static 'pages/styles/route.css' %}" rel="stylesheet"/>
+
+<!-- Load Leaflet from CDN -->
+<link crossorigin="" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      rel="stylesheet"/>
+<script crossorigin=""
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<!-- Load Esri Leaflet from CDN -->
+<script crossorigin=""
+        integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
+        src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"></script>
+
+<!-- Load Esri Leaflet Geocoder from CDN -->
+<link crossorigin="" href="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.css"
+      integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+      rel="stylesheet">
+<script crossorigin=""
+        integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
+        src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+{% endblock %}
+{% block extra_nav %}border-bottom shadow-lg{% endblock %}
+{% block route_link %}active{% endblock %}
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <div class="container-fluid hero">
+        <div class="container hero-contnet">
+            <h1>路线规划</h1>
+        </div>
+    </div>
+    <!-- End Hero Section -->
+
+    <!-- Route Section -->
+    <section class="route my-5" id="route">
+        <div class="container">
+            <h2>智能路线推荐</h2>
+            <small>智能体验，为你量身定制黔行之旅。</small>
+            <div class="route-item mt-5">
+                <div class="route-info border rounded shadow-lg">
+                    <div class="route-form-wrap py-5 px-4">
+                        <!--                        <p>-->
+                        <!--                            旅行路线设置传统热门路线并开放用户个性化定制路线两种选择，即用户可任意选择地图上已标注出的地点或在网站设置的备选地点中选择起点与终点，网站会根据用户选择的起止点，为其生成定制旅行路线，以提高用户旅行的个性化与小众感。-->
+                        <!--                        </p>-->
+
+                        <form class="dist-picker" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-12 mb-2">
+                                    <label for="departureCity" class="form-label">
+                                        <h5>选择出发地：</h5>
+                                    </label>
+                                    <select class="form-select"
+                                            hx-get="{% url 'departure_items' %}"
+                                            hx-target="#departure-items"
+                                            hx-trigger="change"
+                                            name="departure-city"
+                                            id="departureCity">
+                                        <option selected>-- 地级市、地区、自治州、盟 --</option>
+                                        {% for city in cities %}
+                                        <option value="{{ city.pk }}">{{ city.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+
+                                <div class="col-sm-12 mb-3" id="departure-items">
+                                    {% include 'pages/departure-items.html' %}
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="col-sm-12 mb-2">
+                                    <label for="destinationCity" class="form-label">
+                                        <h5>选择目的地：</h5>
+                                    </label>
+                                    <select class="form-select"
+                                            hx-get="{% url 'destination_items' %}"
+                                            hx-target="#destination-items"
+                                            hx-trigger="change"
+                                            name="destination-city"
+                                            id="destinationCity">
+                                        <option selected>-- 地级市、地区、自治州、盟 --</option>
+                                        {% for city in cities %}
+                                        <option value="{{ city.pk }}">{{ city.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+
+                                <div class="col-sm-12 mb-3" id="destination-items">
+                                    {% include 'pages/destination-items.html' %}
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-end">
+                                <button class="get-route btn btn-outline-dark" type="reset">
+                                    重置表单
+                                </button>
+                                <button class="get-route btn btn-dark" type="submit">
+                                    生成路线
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="route-img border rounded shadow-lg" id="map" style="min-height:480px; width:100%">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Route Section -->
+
+    <!-- Route Recommendation Section -->
+    <section class="m-5">
+        <div class="container">
+            <div class="row caption">
+                <div class="col-10 caption-text-wrap">
+                    <h2 class="caption-text">热门路线推荐</h2>
+                </div>
+                <div class="col-2 caption-link-wrap">
+                    <a class="btn btn-dark caption-link" href="all-routes.html">全部路线</a>
+                </div>
+                <div class="col-12">
+                    <!-- <small>为您筛选您或许感兴趣的旅行故事</small> -->
+                </div>
+            </div>
+        </div>
+        <div class="slide-container swiper">
+            <div class="slide-content slide-content-route">
+                <div class="card-wrapper swiper-wrapper">
+
+                    <div class="card swiper-slide">
+                        <iframe src="https://www.google.com/maps/d/embed?mid=1t8B0j0ga3m7Y7ZojbOzU8n25oF2Jo04&ehbc=2E312F" width="471" height="711"></iframe>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <iframe src="https://www.google.com/maps/d/embed?mid=1Ccjh0tEQ9FrU4oR262ALyzFLT-SvYzU&ehbc=2E312F" width="471" height="711"></iframe>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <iframe src="https://www.google.com/maps/d/embed?mid=165XMCxFKoIem8VH63r4SFBzVfbMF9p8&ehbc=2E312F" width="471" height="711"></iframe>
+                    </div>
+
+<!--                    <div class="card swiper-slide">-->
+<!--                        <iframe src="https://www.google.com/maps/d/embed?mid=1fHmB7w_Gqxj2URI_1_D03W5a9OAcr2o&ehbc=2E312F" width="471" height="711"></iframe>-->
+<!--                    </div>-->
+
+<!--                    <div class="card swiper-slide">-->
+<!--                        <iframe src="https://www.google.com/maps/d/embed?mid=1abL-K2smUitKqpw7tiR1CxvuQ1uMPWs&ehbc=2E312F" width="471" height="711"></iframe>-->
+<!--                    </div>-->
+
+<!--                    <div class="card swiper-slide">-->
+<!--                        <iframe src="https://www.google.com/maps/d/embed?mid=1xVKp5erp1e-sWJkSC9iT8F4mo-Qi6Sg&ehbc=2E312F" width="471" height="711"></iframe>-->
+<!--                    </div>-->
+
+<!--                    <div class="card swiper-slide">-->
+<!--                        <iframe src="https://www.google.com/maps/d/embed?mid=124a9MkCaowk4boNaFXEmln_DPH77o9I&ehbc=2E312F" width="471" height="711"></iframe>-->
+<!--                    </div>-->
+
+                </div>
+            </div>
+            <div
+                    class="swiper-button-next swiper-button-next-route swiper-navBtn"
+            ></div>
+            <div
+                    class="swiper-button-prev swiper-button-prev-route swiper-navBtn"
+            ></div>
+            <div class="swiper-pagination swiper-pagination-route"></div>
+        </div>
+  </section>
+  <!-- End Route Recommendation Section -->
+</main>
+
+<footer>
+  <!-- 版权申明 -->
+  <img alt="版权申明" src="{% static 'pages/images/copyright.png' %}"/>
+</footer>
+
+<!-- Swiper JS -->
+<script src="{% static 'pages/scripts/swiper-bundle.min.js' %}"></script>
+
+<script>
+      var swiperRoute = new Swiper(".slide-content-route", {
+        slidesPerView: 3,
+        spaceBetween: 25,
+        loop: true,
+        centerSlide: "true",
+        fade: "true",
+        grabCursor: "true",
+        pagination: {
+          el: ".swiper-pagination-route",
+          clickable: true,
+          dynamicBullets: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next-route",
+          prevEl: ".swiper-button-prev-route",
+        },
+
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          520: {
+            slidesPerView: 2,
+          },
+          950: {
+            slidesPerView: 3,
+          },
+        },
+      });
+
+</script>
+
+<!-- Leaflet JS -->
+<script>
+  var map = L.map('map').setView([26.6476,106.6302], 8);
+  data={};
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+  var gcs = L.esri.Geocoding.geocodeService();
+  var count=0;
+  var markers = new Array();
+  map.on('click', (e)=>{
+    count+=1;
+    gcs.reverse().latlng(e.latlng).run((err, res)=>{
+      if(err) return;
+      var marker = L.marker(res.latlng);
+      markers.push(marker);
+      marker.addTo(map).bindPopup(res.address.Match_addr).openPopup();
+      k=count.toString()
+      data[k+'lat']=res.latlng['lat'];
+      data[k+'lon']=res.latlng['lng'];
+      if(count==2){
+        const route_url='http://localhost:8000/route/showroute/'+data['1lat']+','+data['1lon']+','+data['2lat']+','+data['2lon'];
+        count=0;
+        window.open(route_url);
+        for(i=0;i<markers.length;i++) {
+          map.removeLayer(markers[i]);
+        }
+      }
+   });
+});
+
+</script>
+{% endblock content %}

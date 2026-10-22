@@ -1,0 +1,111 @@
+{% extends "users/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block extra_nav %}border-bottom shadow{% endblock %}
+{% block extra_head %}
+<!--<style>-->
+
+<!--      /* Style the tab */-->
+<!--      .tab {-->
+<!--        float: left;-->
+<!--        width: 20%;-->
+<!--      }-->
+
+<!--      /* Style the buttons that are used to open the tab content */-->
+<!--      .tab a {-->
+<!--        display: block;-->
+<!--        background-color: inherit;-->
+<!--        color: black;-->
+<!--        padding: 22px 16px;-->
+<!--        width: 100%;-->
+<!--        border: none;-->
+<!--        outline: none;-->
+<!--        text-align: left;-->
+<!--        cursor: pointer;-->
+<!--        transition: 0.3s;-->
+<!--      }-->
+
+<!--      /* Change background color of buttons on hover */-->
+<!--      .tab a:hover {-->
+<!--        background-color: #ddd;-->
+<!--      }-->
+
+<!--      /* Create an active/current "tab button" class */-->
+<!--      .tab a.active {-->
+<!--        background-color: #ccc;-->
+<!--      }-->
+
+<!--      /* Style the tab content */-->
+<!--      .tabcontent {-->
+<!--        float: left;-->
+<!--        padding: 0px 12px;-->
+<!--        width: 80%;-->
+<!--        border-left: none;-->
+<!--        height: 300px;-->
+<!--      }-->
+
+<!--      &lt;!&ndash; 解决溢出问题 &ndash;&gt;-->
+<!--      h2.account-heading,-->
+<!--      p.text-secondary {-->
+<!--        overflow-wrap: break-word;-->
+<!--      }-->
+
+<!--</style>-->
+<link href="{% static 'users/styles/profile.css' %}" rel="stylesheet"/>
+
+{% endblock %}
+{% block content %}
+<div class="container my-4" id="profile">
+    <div class="tab rounded border shadow">
+        <div class="media-body">
+            <div class="my-4">
+                <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+            </div>
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+        </div>
+        <div class="media-menu">
+            <a class="side-item" href="{% url 'profile' %}">
+                编辑个人信息
+            </a>
+            <a class="side-item" href="{% url 'my_trip' %}">我的旅程</a>
+            <a class="side-item active" href="{% url 'my_story' %}">我的故事</a>
+        </div>
+    </div>
+
+    <div class="tabcontent">
+<!--        <h3>我的故事</h3>-->
+<!--        {% for story in stories %}-->
+<!--        <article class="media content-section">-->
+<!--          <img class="rounded-circle article-img" src="{{ story.user.profile.image.url }}">-->
+<!--          <div class="media-body">-->
+<!--            <div class="article-metadata">-->
+<!--              <a class="mr-2" href="#">{{ story.user }}</a>-->
+<!--              <small class="text-muted">{{ story.add_date|date:"F d, Y" }}</small>-->
+<!--            </div>-->
+<!--            <h2><a class="article-title" href="#">{{ story.title }}</a></h2>-->
+<!--            <p class="article-content">{{ story.story_content }}</p>-->
+<!--          </div>-->
+<!--        </article>-->
+<!--    {% endfor %}-->
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for story in stories %}
+    <!--    Present content in the form of cards -->
+      <div class="col">
+        <div class="card">
+            <img src="{{ story.image.url }}" class="card-img-top" alt="{{ story.user }}'s image">
+          <div class="card-body">
+            <h5 class="card-title">{{ story.title }}</h5>
+            <p class="card-text">{{ story.user }}</p>
+            <p class="card-text"><small class="text-body-secondary">{{ story.modify_date }}</small></p>
+    <!--         <a href="{% url 'story_update' story.pk %}">编辑</a>-->
+    <!--          <a href="{% url 'story_delete' story.pk %}">删除</a>-->
+            <a href="{% url 'story_each_content' story.pk %}" class="btn btn-dark">了解详情</a>
+          </div>
+        </div>
+      </div>
+        {% endfor %}
+    </div>
+    </div>
+</div>
+{% endblock content %}

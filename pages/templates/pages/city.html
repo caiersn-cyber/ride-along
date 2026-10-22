@@ -1,0 +1,455 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block extra_head %}
+<!-- Arrow -->
+<link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+        rel="stylesheet"
+/>
+
+<!-- Swiper CSS -->
+<link href="{% static 'pages/styles/swiper-bundle.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'pages/styles/card-slider.css' %}" rel="stylesheet"/>
+
+<link href="{% static 'pages/styles/city.css' %}" rel="stylesheet"/>
+
+<style>
+.route-form-wrap {
+	display: none;
+}
+
+.route-form-wrap.active {
+	display: block;
+}
+</style>
+
+<!-- Load Leaflet from CDN -->
+<link crossorigin="" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      rel="stylesheet"/>
+<script crossorigin=""
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<!-- Load Esri Leaflet from CDN -->
+<script crossorigin=""
+        integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
+        src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"></script>
+
+<!-- Load Esri Leaflet Geocoder from CDN -->
+<link crossorigin="" href="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.css"
+      integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+      rel="stylesheet">
+<script crossorigin=""
+        integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
+        src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+{% endblock %}
+{% block extra_nav %}border-bottom shadow-lg{% endblock %}
+{% block city_link %}active{% endblock %}
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <div class="container-fluid hero">
+        <div class="container hero-contnet">
+            <h1>城市一览</h1>
+        </div>
+    </div>
+    <!-- End Hero Section -->
+
+    <!-- City Section -->
+    <section class="route my-5" id="route">
+        <div class="container">
+            <h2>贵州地图</h2>
+            <small
+            >选择你最感兴趣城市，点击右侧地图中对应城市名称，查看详情。</small
+            >
+            <div class="route-item mt-5">
+                <div class="route-info border rounded shadow-lg">
+
+                    <div class="route-form-wrap py-5 px-4 active" id="贵阳市">
+<!--                        <img class="mb-3 rounded" src="{% static 'pages/images/1.png' %}" alt="" width="100%">-->
+                        <h3 class="mb-3">贵阳市</h3>
+                        <p>
+                            在中国的版图上，名字里带阳字的城市很多，大多都源于城市地处山南水北。而贵阳，正是坐落在贵山之南，在中国高原的腹部，傍水依山，四季如歌。<br/><br/>
+                            位于贵阳市云岩区的<strong>黔灵山公园</strong>有着“黔南第一山”的美誉。
+                        </p>
+                        <a class="btn btn-dark" href="">更多城市详情</a>
+                    </div>
+
+                    <div class="route-form-wrap py-5 px-4" id="六盘水市">
+                        <h3 class="mb-3">六盘水市</h3>
+                        <p class="mb-3">
+                            六盘水，因夏季平均气温约19℃，气候凉爽、舒适、滋润、清新，紫外线辐射适中，被中国气象学会授予<strong>“中国凉都”</strong>称号。<br/><br/>
+                            <strong>乌蒙大草原</strong>是西南地区海拔最高，面积最大的高原草场之一。最高海拔为2857米，年平均气温为11.1℃，是夏日避暑的好去处。
+                            这里有一望无际的独特高原草场，有万亩高原矮杜鹃林，有充满神奇色彩美丽动人的高山湖泊，有民族文化浓郁的彝族风情，还有世界罕见的自然奇观——佛光。
+                        </p>
+                        <a class="btn btn-dark" href="">更多城市详情</a>
+                    </div>
+
+                    <div class="route-form-wrap py-5 px-4" id="遵义市">
+                        <h3 class="mb-3">遵义市</h3>
+                        <p class="mb-3">
+                            遵义，一座闻名于遵义会议，绽放于双世界遗产的魅力城市，正不断闪耀着自身的光华与风采。<br/><br/>
+                            在这里，可以走进<strong>赤水丹霞</strong>地貌遗产区，与这位容颜娇美、美妙如歌的丹霞“美人”邂逅，赏山林如裙、飞瀑如发的绝美之姿。
+                        </p>
+                        <a class="btn btn-dark" href="">更多城市详情</a>
+                    </div>
+
+                    <div class="route-form-wrap py-5 px-4" id="安顺市">
+                        <h3 class="mb-3">安顺市</h3>
+                        <p class="mb-3">
+                            山看黄山，黄山归来不看岳；瀑看黄果树，卷帘飞珠疑仙境。贵州西部的安顺，正是因为拥有着人间仙境<strong>黄果树</strong>而名扬天下。<br/><br/>
+                            庐山瀑布闻名于他的山幽叠泉，牡丹江镜泊湖吊水楼瀑布闻名于他的飞水宽广，沿湖岸倾泻而下，壶口瀑布闻名于他的黄河天险，冬日冰瀑，而只有黄果树，是真正的瀑布群，壮丽秀美的瀑布群。
+                        </p>
+                        <a class="btn btn-dark" href="">更多城市详情</a>
+                    </div>
+
+                    <div class="route-form-wrap py-5 px-4" id="毕节市">
+                        <h3 class="mb-3">毕节市</h3>
+                        <p class="mb-3">
+                            洞天福地，花海毕节。<br/><br/>
+                            <strong>织金洞</strong>，"中国最美六大旅游洞穴"之首，洞内囊括了多种溶洞的堆积形态和类别，可谓一步一景，气象万千。<br/><br/>
+                            <strong>百里杜鹃</strong>，是世界唯一的杜鹃花森林公园，拥有125.8平方公里的原生杜鹃林带。因林带绵延百里，故称“百里杜鹃”。
+                        </p>
+                        <a class="btn btn-dark" href="">更多城市详情</a>
+                    </div>
+
+                    <div class="route-form-wrap py-5 px-4" id="铜仁市">
+                        <h3 class="mb-3">铜仁市</h3>
+                        <p class="mb-3">
+                            铜仁，位于贵州省东北部，是贵州平均海拔最低的地区。这里总体处于武陵山区，是云贵高原和湘西丘陵的过渡地带，有乌江等河流穿流而过。<br/><br/>
+                            铜仁的旅游资源丰富，但长期以来由于交通不便，使得大多数景区都“养在深闺人未识”。直到<strong>梵净山</strong>成为世界自然遗产后，铜仁的景区才逐渐被世人所知。
+                        </p>
+                        <a class="btn btn-dark" href="">更多城市详情</a>
+                    </div>
+
+                    <div class="route-form-wrap py-5 px-4" id="黔西南布依族苗族自治州">
+                        <video class="media mb-3 rounded" controls="controls" src="{% static 'pages/mlqxn.mp4' %}"
+                               width="100%"></video>
+                        <h3 class="mb-3">黔西南布依族苗族自治州</h3>
+                        <p class="mb-3">
+                            黔西南布依族苗族自治州地处滇桂黔三省区结合部，云贵高原与广西丘陵过渡地带，珠江上游，素有“西南屏障”“滇黔锁钥”之称。
+                        </p>
+                        <a class="btn btn-dark" href="">更多城市详情</a>
+                    </div>
+
+                    <div class="route-form-wrap py-5 px-4" id="黔东南苗族侗族自治州">
+                        <h3 class="mb-3">黔东南苗族侗族自治州</h3>
+                        <p class="mb-3">
+                            黔东南苗族侗族自治州，位于贵州省东南部。黔东南的少数民族以苗族、侗族为主，旅游热点也围绕苗寨、侗寨的各种特色而展开。<br/><br/>
+                            <strong>最大的苗寨——西江</strong>，与<strong>最大的侗寨——肇兴</strong>皆坐落于此，是初到黔东南的旅行者不得不体验的地方。
+                        </p>
+                        <a class="btn btn-dark" href="">更多城市详情</a>
+                    </div>
+
+                    <div class="route-form-wrap py-5 px-4" id="黔南布依族苗族自治州">
+                        <h3 class="mb-3">黔南布依族苗族自治州</h3>
+                        <p class="mb-3">
+                            世界上看得最远的地方，就在黔南。<br><br>
+                            曾经，“去荔波看大小七孔”似乎是外地游人来黔南旅游最重要的选择。2020年，<strong>“中国天眼”</strong>正式开放运行，从此“去平塘看一眼中国天眼”成为了《黔南旅行清单》上又一个不可或缺的选项。
+                        </p>
+                        <a class="btn btn-dark" href="">更多城市详情</a>
+                    </div>
+                </div>
+                <div class="route-img border rounded shadow-lg" id="map">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End City Section -->
+
+    <!-- City Recommendation Section -->
+    <section class="m-5">
+        <div class="container">
+            <div class="row caption">
+                <div class="col-10 caption-text-wrap">
+                    <h2 class="caption-text">热门城市推荐</h2>
+                </div>
+                <div class="col-2 caption-link-wrap">
+                    <a class="btn btn-dark caption-link" href="">全部城市</a>
+                </div>
+                <div class="col-12">
+                    <!-- <small>为您筛选您或许感兴趣的旅行故事</small> -->
+                </div>
+            </div>
+        </div>
+        <div class="slide-container swiper">
+            <div class="slide-content slide-content-city">
+                <div class="card-wrapper swiper-wrapper">
+
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(85%);" alt="" src="{% static 'pages/images/6/1.jpg' %}">
+                        <div class="card-content">
+                            <h2>镇远古镇</h2>
+                            <p>
+                                石屏山如雄狮昂首挺胸，姿势傲然，
+                                舞阳河则如一条凝碧的玉带，呈“S”型蜿蜒贯通全城，
+                                山水城浑然一体，倒影成画，形成了“九山抱一水，一水分两城”的独特太极图的风貌。
+                            </p>
+                            <a class="button" href="#">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                    arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(85%);" alt="" src="{% static 'pages/images/6/2.jpg' %}">
+                        <div class="card-content">
+                            <h2>荔波</h2>
+                            <p>
+                                小七孔景区位于荔波县城南部30余公里的群峰之中，
+                                因响水河上横跨着一座青石砌成的七孔拱桥，故而得名。
+                                景区融山、水、林、洞、湖泊和瀑布为一体，秀美幽静。
+                            </p>
+                            <a class="button" href="#">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                    arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(85%);" alt="" src="{% static 'pages/images/6/3.jpg' %}">
+                        <div class="card-content">
+                            <h2>梵净山</h2>
+                            <p>
+                                梵净山拥有丰富的野生动植物资源，得名于“梵天净土”，是一座避暑和佛教名山。
+                                梵净山原始生态保存完好，有许多珍稀物种，山区没有人工打造景色的痕迹。
+                            </p>
+                            <a class="button" href="#">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                    arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(85%);" alt="" src="{% static 'pages/images/6/4.jpg' %}">
+                        <div class="card-content">
+                            <h2>威宁草海</h2>
+                            <p>
+                                提起贵州的观鸟胜地，那威宁草海一定是当仁不让的“C位”选手，
+                                120平方公里的天然淡水湖泊保护区给予了威宁草海绝佳的生态条件，被誉为贵州西部的“高原明珠”。
+                            </p>
+                            <a class="button" href="#">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                    arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(85%);" alt="" src="{% static 'pages/images/6/5.png' %}">
+                        <div class="card-content">
+                            <h2>肇兴侗寨</h2>
+                            <p>
+                                传说最初开辟肇兴这片土地的祖先是姓陆的兄弟两人，
+                                第一代移民给自己的新故乡取名叫“肇”，侗语“肇”指开始，后人改作‘肇兴’，寓意开始兴盛，
+                                此后从四面八方迁居而来的外姓人，全部改姓为陆——全寨同姓，以示团结。
+                            </p>
+                            <a class="button" href="#">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                    arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(85%);" alt="" src="{% static 'pages/images/6/6.png' %}">
+                        <div class="card-content">
+                            <h2>黄果树瀑布</h2>
+                            <p>
+                                奔腾的河水自70多米高的悬崖绝壁上直泻犀牛潭，发出震天巨响，如千人击鼓，万马奔腾。
+                                有时瀑布激起的“雪沫烟雾”，高达数百米，漫天浮游，使其周围处于纷飞的细雨之中。
+                            </p>
+                            <a class="button" href="#">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                    arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(85%);" alt="" src="{% static 'pages/images/6/7.jpg' %}">
+                        <div class="card-content">
+                            <h2>云舍村</h2>
+                            <p>
+                                江口县太平镇云舍景区，是世界自然遗产地梵净山脚下的一个小山村，
+                                也是一个气候宜人、风景秀丽的土家族聚居村，素有“云中仙舍”之称。
+                            </p>
+                            <a class="button" href="#">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                    arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(85%);" alt="" src="{% static 'pages/images/6/8.jpg' %}">
+                        <div class="card-content">
+                            <h2>右二村</h2>
+                            <p>
+                                每至3月中旬到4月初的赏花期，右二村的早樱、晚樱、海棠、玉兰、桃花等花卉竞相绽放，
+                                繁花似锦、万物争春，构成一幅春色满园的田园画卷。
+                            </p>
+                            <a class="button" href="#">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                    arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(85%);" alt="" src="{% static 'pages/images/6/9.png' %}">
+                        <div class="card-content">
+                            <h2>织金洞</h2>
+                            <p>
+                                踏入洞内，就像进入了一个钟乳石的梦幻世界。
+                                这其中不乏世界级的珍品——“霸王盔”，目前世界上唯一发现的形态最逼真的盔状石笋。
+                            </p>
+                            <a class="button" href="#">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                    arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                    class="swiper-button-next swiper-button-next-city swiper-navBtn"
+            ></div>
+            <div
+                    class="swiper-button-prev swiper-button-prev-city swiper-navBtn"
+            ></div>
+            <div class="swiper-pagination swiper-pagination-city"></div>
+        </div>
+    </section>
+    <!-- End City Recommendation Section -->
+</main>
+
+<footer>
+    <!-- 版权申明 -->
+    <img alt="版权申明" src="{% static 'pages/images/copyright.png' %}"/>
+</footer>
+
+<!-- Swiper JS -->
+<script src="{% static 'pages/scripts/swiper-bundle.min.js' %}"></script>
+
+<script>
+      var swiperRoute = new Swiper(".slide-content-city", {
+        slidesPerView: 3,
+        spaceBetween: 25,
+        loop: true,
+        centerSlide: "true",
+        fade: "true",
+        grabCursor: "true",
+        pagination: {
+          el: ".swiper-pagination-city",
+          clickable: true,
+          dynamicBullets: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next-city",
+          prevEl: ".swiper-button-prev-city",
+        },
+
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          520: {
+            slidesPerView: 2,
+          },
+          950: {
+            slidesPerView: 3,
+          },
+        },
+      });
+
+
+
+</script>
+
+<script>
+  // 初始化地图，设置地理坐标和缩放级别
+  var map = L.map("map").setView([26.6476, 106.6302], 8);
+
+  map.createPane("labels");
+  map.getPane("labels").style.zIndex = 650;
+  map.getPane("labels").style.pointerEvents = "none";
+
+  var positron = L.tileLayer(
+    "https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
+    {
+      attribution: "©OpenStreetMap, ©CartoDB",
+    }
+  ).addTo(map);
+
+  var positronLabels = L.tileLayer(
+    "https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png",
+    {
+      attribution: "©OpenStreetMap, ©CartoDB",
+      pane: "labels",
+    }
+  ).addTo(map);
+
+  var myStyle = {
+    weight: 5,
+    opacity: 0.65,
+  };
+
+  fetch("{% static 'pages/final.json' %}")
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json);
+      var geojson = L.geoJson(json, {
+        style: myStyle,
+      }).addTo(map);
+
+      geojson.eachLayer(function (layer) {
+        layer.bindPopup(layer.feature.properties.name);
+        layer.on('click', (e)=>{
+          let name = layer.feature.properties.name;
+          // console.log(name);
+
+          const cityDivs = document.querySelectorAll('.route-form-wrap');
+          const cityDiv = document.querySelector(`#${name}`);
+          const video = document.querySelector('.media');
+
+          video.pause();
+
+          for(var i = 0; i < cityDivs.length; i++){
+            var item = cityDivs[i];
+            item.classList.remove('active');
+          }
+
+          cityDiv.classList.add('active');
+
+        })
+      });
+
+      map.fitBounds(geojson.getBounds());
+    });
+</script>
+{% endblock content %}

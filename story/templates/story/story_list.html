@@ -1,0 +1,81 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block extra_head %}
+<!-- 自定义样式 -->
+<link href="{% static 'pages/styles/about.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block extra_nav %}border-bottom shadow-lg{% endblock %}
+{% block content %}
+<main>
+
+    <!-- Hero Section -->
+    <div class="container-fluid hero">
+        <div class="container hero-contnet">
+            <h1>故事分享</h1>
+        </div>
+<!--        <div class="banner-pic"></div>-->
+    </div>
+    <!-- End Hero Section -->
+    <br>
+
+
+<!--START STORY SHOW-->
+<div class="container">
+
+    <!--    start search-->
+    <div class="container-fluid">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="请输入感兴趣地点进行搜索" aria-label="Search">
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+    </div>
+    <br>
+    <!--    end search-->
+
+{% load crispy_forms_tags %}
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for story in stories %}
+<!--    Present content in the form of cards -->
+  <div class="col">
+    <div class="card">
+        <img src="{{ story.image.url }}" class="card-img-top" alt="{{ story.user }}'s image">
+      <div class="card-body">
+        <h5 class="card-title">{{ story.title }}</h5>
+        <p class="card-text">{{ story.user }}</p>
+        <p class="card-text"><small class="text-body-secondary">{{ story.modify_date }}</small></p>
+<!--         <a href="{% url 'story_update' story.pk %}">编辑</a>-->
+<!--          <a href="{% url 'story_delete' story.pk %}">删除</a>-->
+        <a href="{% url 'story_each_content' story.pk %}" class="btn btn-dark">了解详情</a>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+<!--<div class="card mb-3">-->
+<!--  <img src="{{ story.image.url }}" class="card-img-top" alt="{{ story.user }}'s image">-->
+<!--  <div class="card-body">-->
+<!--&lt;!&ndash;    <h5 class="card-title">{{ story.title }}</h5>&ndash;&gt;-->
+<!--    <p class="card-text">{{ story.user }}</p>-->
+<!--    <p class="card-text"><small class="text-body-secondary">{{ story.modify_date }}</small></p>-->
+<!--    <a href="#" class="btn btn-primary">了解详情</a>-->
+<!--  </div>-->
+
+
+
+
+
+</div>
+
+
+<br>
+
+    <footer>
+        <!-- 版权申明 -->
+        <img alt="版权申明" src="{% static 'pages/images/copyright.png' %}"/>
+    </footer>
+
+</main>
+{% endblock content %}

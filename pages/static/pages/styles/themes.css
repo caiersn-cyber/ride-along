@@ -1,0 +1,13 @@
+:root {
+    --blue: #1b3960;
+    --white: #eff1ec;
+    --orange: #ef643d;
+    --pink: #d86896;
+    --black: #282828;
+
+    /* --hue: 84;
+    --first-color: hsl(var(--hue), 15%, 93%);
+    --first-color-alt: hsl(var(--hue), 15%, 100%);
+    --first-color-light: hsl(var(--hue), 15%, 66%);
+    --first-color-lighten: hsl(var(--hue), 15%, 32%); */
+}

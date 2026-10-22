@@ -1,0 +1,64 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block extra_head %}
+<!-- 自定义样式 -->
+<link href="{% static 'pages/styles/about.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block extra_nav %}border-bottom shadow-lg{% endblock %}
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <div class="container-fluid hero">
+        <div class="container hero-contnet">
+            <h1>都匀毛尖茶体验</h1>
+        </div>
+<!--        <div class="banner-pic"></div>-->
+    </div>
+    <!-- End Hero Section -->
+    <br>
+    <!--    start add story-->
+    <div class="container">
+        <div class="row">
+            <div class="col-3" style="border-right:1px solid #bbbebb">
+                <h4>黔南布依族苗族自治州</h4>
+                <h5>都匀市</h5>
+            </div>
+            <div class="col-9">
+                <h2>都匀毛尖茶制作技艺：茶山上赓续的传世手艺</h2>
+        <br>
+        <p>
+            都匀毛尖茶（原名鱼钩茶），是中国高端绿茶的精品，产于中国贵州省黔南州布依族苗族自治州境内，核心产区位于著有“全球绿色城市”“中国毛尖茶都”之称的都匀市。都匀毛尖具有外形白毫显露、条索紧细、卷曲似鱼钩，内质香高持久、汤色清澈明亮、滋味鲜爽回甘，叶底明亮、芽头肥壮等特点。素以“三绿透三黄”的品质特征著称于世，即干茶色泽绿中带黄，汤色绿中透黄，叶底绿中显黄。其品质优佳，饮罢浮花清爽味，心旷神怡功关灵！
+        </p>
+                <img src="{% static '\pages\pro_image\tea.jfif' %}" class="rounded mx-auto d-block" alt="">
+        <br>
+        <p>
+            出生于种茶世家的张子全7岁开始采茶、制茶，15岁独创“火中取宝”技艺，种茶、制茶、品茶贯穿着他的一生。行走于葱郁无边的茶山，雨天的雾霭和晴天的透亮交替呈现，张子全眼中最美的风景在劳动和生活中，也在一首首布依山歌中——他的婚姻，就是因为山歌而成全的。
+        </p>
+                <img src="{% static '\pages\pro_image\tea_1.jpg' %}" class="rounded mx-auto d-block" alt="">
+        <br>
+        <p>
+            最早的都匀毛尖原产都匀境内的团山，随着种茶经验的不断积累，茶农逐渐将种植基地移至海拔更高、土壤更肥沃、气候湿度和降雨量更多的螺蛳壳山种植。2022年初记者在螺蛳壳茶园采访，张子全在雨雾中醉心于展示他的“茶缘”，他说，现在提倡茶旅融合，螺蛳壳这一大片茶的山区就形成了一道秀丽的风景，人们在周末或节假日开车来这里旅游，可以体验茶农的手工制作技艺，还可以在茶园里、竹海间欣赏自然风光。
+        </p>
+        <br>
+        <p>
+            螺蛳壳景区地势高旷，气候变幻无常，自然景观十分壮丽。晴天丽日与漫天浓雾会在短时间内切换，人行其中，犹如在岛屿上漂浮。温和的气候，充沛的雨量，湿润的云雾，肥沃的土壤，使螺蛳壳成为都匀毛尖的主产地。生长在自然环境中的团叶茶树品种，充分表现出芽叶茸毛多、肥厚柔嫩、发芽早、持嫩性强的特性。著名茶叶专家庄晚芳曾题诗盛赞：“毛尖芳香都匀生，不亚龙井碧螺春。饮罢浮花清鲜味，心旷神怡攻关灵。”
+        </p>
+                <br>
+        <p>
+            如果说螺蛳壳的自然风貌是旅游底色的话，那么连绵起伏的茶山则为这个底色附着了灵性，自然植被与人工茶园相得益彰。在螺蛳壳景区漫游，游客吮吸到的是浓郁的植被气息，林木、竹子、茶树形成“交互式展陈”，向游客铺展景区的绿色气度，同时也展示螺蛳壳的奇秀与野趣。望着来来往往的游客，张子全觉得“自己的活法增加了频道，生活更加精彩”。张子全把制茶基地坐落于茶山之上，他说这是“为景区增添一点人文的元素，让螺蛳壳更好看”。
+        </p>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <!--    end add story-->
+     <br>
+
+    <footer>
+        <!-- 版权申明 -->
+        <img alt="版权申明" src="{% static 'pages/images/copyright.png' %}"/>
+    </footer>
+
+</main>
+{% endblock content %}

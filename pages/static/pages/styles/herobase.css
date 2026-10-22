@@ -1,0 +1,24 @@
+@import url(themes.css);
+
+.hero {
+    min-height: 10rem;
+    background-color: var(--blue);
+}
+
+.hero h1 {
+    padding-top: 10rem;
+    display: inline;
+    color: var(--white);
+    line-height: 10rem;
+}
+
+@media screen and (min-width: 992px) {
+    .hero {
+        min-height: 20rem;
+    }
+
+    .hero h1 {
+        padding-top: 8rem;
+        line-height: 20rem;
+    }
+}

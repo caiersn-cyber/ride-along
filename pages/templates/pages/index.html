@@ -1,0 +1,385 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block extra_head %}
+<!-- Link Swiper's CSS -->
+<link href="{% static 'pages/styles/swiper-bundle.min.css' %}" rel="stylesheet"/>
+
+<!-- Demo styles -->
+<style>
+      .swiper {
+        width: 300px;
+        height: 300px;
+      }
+
+      .swiper-slide {
+        background-position: center;
+        background-size: cover;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+      }
+
+      @media screen and (min-width: 992px) {
+        .swiper {
+          width: 350px;
+          height: 350px;
+        }
+      }
+
+
+
+
+</style>
+
+<!-- 引入字体图标 -->
+<link href="{% static 'pages/styles/font-awesome.css' %}" rel="stylesheet"/>
+
+<!-- 自定义样式 -->
+<link href="{% static 'pages/styles/index.css' %}" rel="stylesheet"/>
+
+<!-- Load Leaflet from CDN -->
+<link crossorigin="" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      rel="stylesheet"/>
+<script crossorigin=""
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+{% endblock %}
+{% block home_link %}active{% endblock %}
+{% block content %}
+<!-- Hero Section -->
+<div class="container hero rounded">
+    <div class="hero-content p-5">
+        <div class="hero-text">
+            <h1 class="my-3">
+                多彩贵州 <br/>
+                邂逅一场黔山秀水之约
+            </h1>
+            <p class="my-3">
+                这是一个关于旅行的网站，但又不只是旅行，你在做一件有意义的事情，远离城市的喧嚣，开启对自己心灵的净化和洗涤同时助力乡村经济振兴。<br/>
+                谈及贵州？你能想到的是17万平方公里的辽阔，还是“珠帘钩不卷，飞练挂遥峰”的黄果树瀑布，驻足田野，冲上云霄，结果超乎你的想象，前往平时无法到达的地方，看见专属于你的奇观，俯瞰这片魂牵梦萦的大地，前所未有的极致体验从现在开始，和我们一起，天际遨游。
+            </p>
+            <a class="btn btn-lg btn-light my-1" href="#">了解我们</a>
+        </div>
+        <div class="hero-image">
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{% static 'pages/images/1/2.png' %}"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{% static 'pages/images/1/3.png' %}"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{% static 'pages/images/1/4.png' %}"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{% static 'pages/images/1/5.png' %}"/>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero Section -->
+
+<!-- About Section -->
+<section class="about my-5" id="abouts">
+    <div class="abouts container">
+        <h2 class="text-center">关于我们</h2>
+        <div class="about-content">
+            <div class="about-item">
+                <div class="icon">
+                    <img src="{% static 'pages/images/2/icons8-roadmap-100.png' %}"/>
+                </div>
+                <h3 class="text-start pb-3 border-bottom">
+                    智慧旅行 <br/>
+                    自动规划旅行路线
+                </h3>
+                <p class="text-start">
+                    根据用户的出发地、目的地、旅行天数、各地推荐权重、各地游玩天数、交通工具选择等参数规划一条旅行路线，实现真正的“智慧旅行”。
+                </p>
+            </div>
+            <div class="about-item">
+                <div class="icon">
+                    <img src="{% static 'pages/images/2/icons8-trust-100.png' %}"/>
+                </div>
+                <h3 class="text-start pb-3 border-bottom">
+                    乡村振新 <br/>
+                    发现小众的美丽
+                </h3>
+                <p class="text-start">
+                    旅游是实现乡村振兴的重要抓手，在这些风景秀美的村落，用户可以远离城市的喧嚣，感受到来自贵州古朴村落的烟火气，探寻只属于自己的假日时光。
+                </p>
+            </div>
+            <div class="about-item">
+                <div class="icon">
+                    <img src="{% static 'pages/images/2/icons8-share-100.png' %}"/>
+                </div>
+                <h3 class="text-start pb-3 border-bottom">
+                    分享故事 <br/>
+                    诉说旅途中的奇遇
+                </h3>
+                <p>
+                    你既可以是旅游的参与者，体验者，也可以是网站图片及故事的创作者，在旅行中的美景趣事，所见所闻，都可以拿起手机记录下来，选出你心中最美的景点，开启黔行之旅。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Section -->
+
+<!-- Route Section -->
+<section class="route my-5" id="route">
+    <div class="container p-5">
+        <h2>智能路线推荐</h2>
+        <small>智能体验，为你量身定制黔行之旅。</small>
+        <div class="route-item mt-5">
+            <div class="route-info">
+                <div class="route-form-wrap rounded py-5 px-4">
+                    <p>
+                        旅行路线设置传统热门路线并开放用户个性化定制路线两种选择，即用户可任意选择地图上已标注出的地点或在网站设置的备选地点中选择起点与终点，网站会根据用户选择的起止点，为其生成定制旅行路线，以提高用户旅行的个性化与小众感。
+                    </p>
+                    <form>
+                        <fieldset disabled>
+                            <div class="row mb-3">
+                                <div class="col-sm-10 mb-3">
+                                    <input
+                                            class="form-control"
+                                            id="inputSource"
+                                            placeholder="出发地"
+                                            type="text"
+                                    />
+                                </div>
+                                <div class="col-sm-10">
+                                    <input
+                                            class="form-control"
+                                            id="inputDestination"
+                                            placeholder="目的地"
+                                            type="text"
+                                    />
+                                </div>
+                            </div>
+                        </fieldset>
+                        <a class="btn btn-dark" href="#">点此尝试</a>
+                    </form>
+                </div>
+            </div>
+            <div class="route-img rounded" id="map">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Route Section -->
+
+<!-- City Section -->
+<section class="city my-5">
+    <div class="container">
+        <h2>热门城市推荐</h2>
+        <small>根据前期用户反馈及大数据推送，下方城市你最钟意哪个？</small>
+        <div class="citycontainer container">
+            <div
+                    class="item active"
+                    style="background-image: url({% static 'pages/images/3/01贵阳市.jpg' %})"
+            >
+                <div class="shadow"></div>
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-sun-o"></i>
+                    </div>
+                    <div class="text">
+                        <h5>贵阳</h5>
+                    </div>
+                </div>
+            </div>
+            <div
+                    class="item"
+                    style="background-image: url({% static 'pages/images/3/02安顺市.jpg' %})"
+            >
+                <div class="shadow"></div>
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-cloud"></i>
+                    </div>
+                    <div class="text">
+                        <h5>安顺</h5>
+                    </div>
+                </div>
+            </div>
+            <div
+                    class="item"
+                    style="background-image: url({% static 'pages/images/3/03毕节市.jpg' %})"
+            >
+                <div class="shadow"></div>
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-tint"></i>
+                    </div>
+                    <div class="text">
+                        <h5>毕节</h5>
+                    </div>
+                </div>
+            </div>
+            <div
+                    class="item"
+                    style="background-image: url({% static 'pages/images/3/04铜仁市梵净山.jpg' %})"
+            >
+                <div class="shadow"></div>
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-bolt"></i>
+                    </div>
+                    <div class="text">
+                        <h5>铜仁</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End City Section -->
+
+<!-- Story Section -->
+<section class="story my-5">
+    <div class="container">
+        <h2>热门故事推荐</h2>
+        <small
+        >旅途中一定有那么一个瞬间是感动的、是震撼的、是希望和家人朋友甚至是陌生的驴友分享的，快来分享你的心动瞬间，让我们一起感受多彩的贵州山水。</small
+        >
+        <div class="storycontainer">
+            <!-- 卡片设计 -->
+            <div class="blog-slider mt-5">
+                <div class="blog-slider_wrp swiper-wrapper">
+                    <div class="blog-slider_item swiper-slide">
+                        <div class="blog-slider_img">
+                            <img src="{% static 'pages/images/4/1.jpeg' %}"/>
+                        </div>
+                        <div class="blog-slider_content">
+                            <span class="blog-slider_code">2022年7月5号</span>
+                            <div class="h3">半山腰上的西江千户苗寨</div>
+                            <div class="blog-slider_text">
+                                去苗寨最大的担心是人多车多，路上堵车太久，犹豫要不要临时取消苗寨之行，又想没去过的同学可能很想去看看，据说夜景非常壮观，堵车也要去。
+                            </div>
+                            <a class="blog-slider_button" href="#">了解更多</a>
+                        </div>
+                    </div>
+
+                    <!-- 相同的格式，复制了两次，修改自己需要的内容 -->
+                    <div class="blog-slider_item swiper-slide">
+                        <div class="blog-slider_img">
+                            <img src="{% static 'pages/images/4/2.png' %}"/>
+                        </div>
+                        <div class="blog-slider_content">
+                            <span class="blog-slider_code">2019年5月27日</span>
+                            <div class="blog-slider_title">
+                                黔东南最后的秘境，捕捉加榜梯田的浮光掠影
+                            </div>
+                            <div class="blog-slider_text">
+                                加榜梯田的好，在于它并不单调，如果纯粹是大片田野，看久了不免乏味，苗寨的存在，带来一番生机勃勃。
+                            </div>
+                            <a class="blog-slider_button" href="#">了解更多</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-slider_item swiper-slide">
+                        <div class="blog-slider_img">
+                            <img src="{% static 'pages/images/4/3.jpeg' %}"/>
+                        </div>
+                        <div class="blog-slider_content">
+                            <span class="blog-slider_code">2018年1月16日</span>
+                            <div class="blog-slider_title">一路向北，追寻上帝遗落的五色系——「黔东南」之秋色</div>
+                            <div class="blog-slider_text">
+                                这次旅行很随性，从贵阳一路向北，然而却不经意误入黔东南的世外桃源，却是你我曾向往的生活。
+                            </div>
+                            <a class="blog-slider_button" href="#">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-slider_pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Story Section -->
+
+<button class="scroll-to-top rounded" title="Go to top">Top</button>
+
+<footer>
+    <!-- 版权申明 -->
+    <img alt="版权申明" src="{% static 'pages/images/copyright.png' %}"/>
+</footer>
+
+<script src="{% static 'pages/scripts/scroll-to-top.js' %}"></script>
+
+<script src="{% static 'pages/scripts/index.js' %}"></script>
+
+<!-- Swiper JS -->
+<script src="{% static 'pages/scripts/swiper-bundle.min.js' %}"></script>
+
+<!-- Initialize Swiper -->
+<script>
+      var swiperHero = new Swiper(".mySwiper", {
+        effect: "cube",
+        grabCursor: true,
+        cubeEffect: {
+          shadow: true,
+          slideShadows: true,
+          shadowOffset: 20,
+          shadowScale: 0.94,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      });
+
+      var swiperStory = new Swiper(".blog-slider", {
+        spaceBetween: 30,
+        effect: "fade",
+        loop: true,
+        // mousewheel: {
+        //   invert: false,
+        // },
+
+        pagination: {
+          el: ".blog-slider_pagination",
+          clickable: true,
+        },
+      });
+
+
+</script>
+
+<!-- Scrollreveal JS -->
+<script src="{% static 'pages/scripts/scrollreveal.min.js' %}"></script>
+
+<!-- Initialize Scrollreveal -->
+<script>
+      const sr = ScrollReveal({
+        origin: "top",
+        distance: "60px",
+        duration: 2500,
+        delay: 400,
+        // reset: true
+      });
+
+      sr.reveal(`.hero`);
+      sr.reveal(`.about`);
+      sr.reveal(`.route`);
+      sr.reveal(`.city`);
+      sr.reveal(`.story`);
+
+</script>
+
+<script>
+  var map = L.map('map').setView([26.6476,106.6302], 8);
+  data={};
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+</script>
+{% endblock content %}

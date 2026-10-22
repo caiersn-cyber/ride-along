@@ -1,0 +1,12 @@
+ride-along 后端项目管理员信息
+
+name:
+ridealong
+
+password:
+ride1234
+
+email:
+1427151400@qq.com
+
+用户	testuser1 testing123

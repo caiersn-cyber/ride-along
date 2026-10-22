@@ -1,0 +1,208 @@
+@import url(themes.css);
+@import url(base.css);
+@import url(aboutbase.css);
+@import url(herobase.css);
+
+@media screen and (min-width: 1200px) {
+    .banner-pic {
+        float: right;
+        margin-top: -200px;
+        margin-right: 200px;
+        width: 500px;
+        height:500px;
+        background-color: #fff;
+    }
+    
+    
+    #abouts {
+        clear: right;
+    }
+}
+
+/* Hero Section */
+/* End Hero Section */
+
+/* About Section */
+/* End About Section */
+
+/* Developer Section */
+.developer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+    /* max-width: 1200px; */
+    /* margin: 0 auto; */
+    /* padding: 100px 20px; */
+}
+
+#developer .col-left {
+    /* width: 250px; */
+    /* height: 360px; */
+}
+
+#developer .col-right {
+    width: 100%;
+}
+
+#developer .col-right h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    margin-bottom: 10px;
+}
+
+#developer .col-right p {
+    margin-bottom: 20px;
+}
+
+#developer .col-right .cta {
+    color: black;
+    margin-bottom: 50px;
+    padding: 10px 20px;
+    font-size: 2rem;
+}
+
+#developer .col-left .about-img {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border: 10px solid white;
+}
+
+#developer .col-left .about-img::after {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 19px;
+    height: 98%;
+    width: 98%;
+    border: 7px solid crimson;
+    z-index: -1;
+}
+
+.col-right {
+    margin: 0;
+    padding: 0;
+    /* min-height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-right .container {
+    position: relative;
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.col-right .container .box {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    margin: 20px 0;
+    cursor: pointer;
+    /* overflow: hidden; */
+}
+
+.col-right .container .box .imgBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    clip-path: circle(400px at center 100px);
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+
+.col-right .container .box:hover .imgBx {
+    clip-path: circle(80px at center 100px);
+    transition-delay: 0s;
+}
+
+.col-right .container .box .imgBx img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.col-right .container .box:hover .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.col-right .container .box .content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 55%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.col-right .container .box .content h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.col-right .container .box .content h3 {
+    opacity: 0;
+    transition: 0.5s;
+    transform: translateY(40px);
+}
+
+.col-right .container .box:hover .content h3 {
+    opacity: 1;
+    transform: translateY(60px);
+    transition-delay: 0.5s;
+}
+
+/* End Developer Section */
+
+/* Media Query For Tablet */
+@media screen and (min-width: 1200px) {
+
+    /* Developer Section */
+    #developer .developer {
+        flex-direction: row;
+    }
+
+    #developer .col-left {
+        width: 600px;
+        height: 400px;
+        padding-left: 60px;
+    }
+
+    #developer .developer .col-left .developer-img::after {
+        left: -45px;
+        top: 34px;
+        height: 98%;
+        width: 98%;
+        border: 10px solid crimson;
+    }
+
+    #developer .col-right {
+        text-align: left;
+        /* padding: 30px; */
+    }
+
+    #developer .col-right h1 {
+        text-align: left;
+    }
+
+    /* End Developer Section */
+}
+
+/* End Media Query For Tablet */

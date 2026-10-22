@@ -1,0 +1,101 @@
+/* Style the buttons that are used to open the tab content */
+a.side-item {
+    display: inline-block;
+    background-color: inherit;
+    color: black;
+    width: 100%;
+    padding: 22px 16px;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+a.side-item:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+a.side-item.active {
+    background-color: #ccc;
+}
+
+/* 解决溢出问题 */
+h2.account-heading,
+p.text-secondary {
+    overflow-wrap: break-word;
+}
+
+/* 居中 */
+.media-body {
+    margin: 0 auto;
+}
+
+.media-body > div {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.media-body h2,
+.media-body p {
+    text-align: center;
+}
+
+.account-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    text-align: center;
+    border: 5px solid #1b396060;
+    border-radius: 50%;
+}
+
+#profile {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.tab {
+    flex: 1;
+}
+
+.tabcontent {
+    flex: 1;
+}
+
+.media-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.media-menu > a {
+    flex: 1;
+}
+
+@media screen and (min-width: 768px) {
+    #profile {
+        flex-direction: row;
+    }
+
+    .tab {
+        flex: 1;
+        height: 100%;
+    }
+
+    .tabcontent {
+        flex: 4;
+    }
+
+    .media-menu {
+        flex-direction: column;
+    }
+
+    a.side-item {
+        text-align: left;
+    }
+}

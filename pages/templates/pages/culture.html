@@ -1,0 +1,481 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block extra_head %}
+<!-- Arrow -->
+<link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+        rel="stylesheet"
+/>
+
+<!-- Swiper CSS -->
+<link href="{% static 'pages/styles/swiper-bundle.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'pages/styles/card-slider.css' %}" rel="stylesheet"/>
+
+<!-- 自定义样式 -->
+<link href="{% static 'pages/styles/culture.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block extra_nav %}border-bottom shadow-lg{% endblock %}
+{% block culture_link %}active{% endblock %}
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <div class="container-fluid hero">
+        <div class="container hero-contnet">
+            <h1>人文旅游</h1>
+        </div>
+        <div class="banner-pic"></div>
+    </div>
+    <!-- End Hero Section -->
+
+    <!-- Project Section -->
+    <section class="m-5">
+        <div class="container">
+            <div class="row caption">
+                <div class="col-10 caption-text-wrap">
+                    <h2 class="caption-text">热门项目推荐</h2>
+                </div>
+                <div class="col-2 caption-link-wrap">
+                    <a class="btn btn-dark caption-link" href="">全部项目</a>
+                </div>
+                <div class="col-12">
+                    <small>综合用户反馈，为您筛选推送专属热门项目</small>
+                </div>
+            </div>
+        </div>
+        <div class="slide-container swiper">
+            <div class="slide-content slide-content-project">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(70%);"
+                                alt=""
+                                src="{% static 'pages/images/project_exp/shiqian.jfif' %}"
+                        />
+
+                        <div class="card-content">
+                            <h2>石阡说春</h2>
+                            <p>
+                                <br>
+                                “石阡说春”一般在每年春节或立春时开始，春分时结束，每当“春色”来临，一群村民穿着旧时服饰四处游走在村寨之间，劝勉人们珍惜农时
+                            </p>
+                            <a class="button" href="{% url 'culture_project_04' %}">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                  arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(66%);"
+                                alt=""
+                                src="{% static 'pages/images/project_exp/5_3.jfif' %}"
+                        />
+                        <div class="card-content">
+                            <h2>都匀毛尖茶体验</h2>
+                            <p>
+                                都匀毛尖茶（原名鱼钩茶），是中国高端绿茶的精品，产于中国贵州省黔南州布依族苗族自治州境内，了解传世技艺，品味茶香韵味；
+                            </p>
+                            <a class="button" href="{% url 'culture_project_05' %}">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                  arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(75%);"
+                                alt=""
+                                src="{% static 'pages/images/project_exp/2.jfif' %}"
+                        />
+                        <div class="card-content">
+                            <h2>在春天，<br>遇见“黔”山万水</h2>
+                            <p>
+                                春天是一年中最美的季节，万物复苏，花开烂漫，我们开启了6天2000公里的自驾追花之旅，与“黔”山万水多彩的春撞个满怀！
+                            </p>
+                            <a class="button" href="{% url 'culture_project_02' %}">
+                            了解详情
+                                <span class="material-symbols-outlined">
+                                  arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(85%);"
+                                alt=""
+                                src="{% static 'pages/images/project_exp/7.png' %}"
+                        />
+                        <div class="card-content">
+                            <h2>茂兰：<br>国家级自然保护区</h2>
+                            <p>
+                                这里乔木生长众多，有银杏、单性木兰、鹅掌楸等多种珍稀树种；这里古老野生动物汇聚，云豹、林麝、猕猴、香獐......还有尧古村寨和布依族村寨、拉桥水寨散落其间！
+                            </p>
+                            <a class="button" href="{% url 'culture_project_01' %}">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                  arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(80%);"
+                                alt=""
+                                src="{% static 'pages/images/project_exp/3.jfif' %}"
+                        />
+                        <div class="card-content">
+                            <h2>紫云格凸河景区</h2>
+                            <p>
+                                格凸河景区距离安顺半小时车程，景区设有自行车道，若喜欢户外运动，可以在进山前自行车驿站租山地自行车骑行，感受河谷风光！
+                            </p>
+                            <a class="button" href="{% url 'culture_project_03' %}">
+                                了解详情
+                            <span class="material-symbols-outlined">
+                              arrow_right_alt
+                            </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(70%);"
+                                alt=""
+                                src="{% static 'pages/images/project_exp/6.jfif' %}"
+                        />
+                        <div class="card-content">
+                            <h2>西江苗寨+镇远古镇</h2>
+                            <p>
+                                西江千户苗寨风景区位于雷公山山麓，是天下第一大苗寨；镇远古镇，位于侗族自治州镇远县，古建筑、传统民居、历史码头数量颇多
+                            </p>
+                            <a class="button" href="https://www.mafengwo.cn/gonglve/ziyouxing/30904.html">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                  arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(75%);"
+                                alt=""
+                                src="{% static 'pages/images/project_exp/8_2.jfif' %}"
+                        />
+                        <div class="card-content">
+                            <h2>贵阳：青岩古镇</h2>
+                            <p>
+                                青岩古镇始建于明代，完好保存大量明清时期的古建筑，“贵州四大古镇”之一，古镇依山就势，城墙用巨石筑于悬崖上，镇内建筑精湛的石雕、木雕工艺是一大看点
+                            </p>
+                            <a class="button" href="#">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                  arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(75%);"
+                                alt=""
+                                src="{% static 'pages/images/project_exp/9_1.jfif' %}"
+                        />
+                        <div class="card-content">
+                            <h2>贵阳：黔灵山公园</h2>
+                            <p>
+                                黔灵山公园以明山、秀水、幽林、古寺、圣泉、灵猴为特色，被誉为“黔南第一山”，公园由三岭湾猕猴观赏园、弘福寺、麒麟洞、动物园、黔灵湖、风雨桥等景区及盘山步道组成
+                            </p>
+                            <a class="button" href="#">
+                                了解详情
+                                <span class="material-symbols-outlined">
+                                  arrow_right_alt
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                    class="swiper-button-next swiper-button-next-project swiper-navBtn"
+            ></div>
+            <div
+                    class="swiper-button-prev swiper-button-prev-project swiper-navBtn"
+            ></div>
+            <div class="swiper-pagination swiper-pagination-project"></div>
+        </div>
+    </section>
+    <!-- End Project Section -->
+
+    <!-- Story Section -->
+    <section class="m-5">
+        <div class="container">
+            <div class="row caption">
+                <div class="col-10 caption-text-wrap">
+                    <h2 class="caption-text">热门故事推荐</h2>
+                </div>
+                <div class="col-2 caption-link-wrap">
+                    <a class="btn btn-dark caption-link" href="{% url 'story_list' %}">全部故事</a>
+                </div>
+                <div class="col-12">
+                    <small>为您筛选您或许感兴趣的贵州旅游故事</small>
+                </div>
+            </div>
+        </div>
+        <div class="slide-container swiper">
+            <div class="slide-content slide-content-story">
+                <div class="card-wrapper swiper-wrapper">
+                    {% for story in stories %}
+                    <div class="card swiper-slide">
+                        <img style="filter: brightness(75%);"
+                                alt=""
+                                src="{{ story.image.url }}" />
+
+<!--                               src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80"-->
+
+                        <div class="card-content">
+                            <h2>{{ story.title }}</h2>
+                            <p>
+                                {{ story.story_absrtact }}
+                            </p>
+                            <a class="button" href="{% url 'story_each_content' story.pk %}">
+                                了解更多
+                                <span class="material-symbols-outlined">
+                      arrow_right_alt
+                    </span>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+<!--                    <div class="card swiper-slide">-->
+<!--                        <img-->
+<!--                                alt=""-->
+<!--                                src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80"-->
+<!--                        />-->
+<!--                        <div class="card-content">-->
+<!--                            <h2>Card Heading</h2>-->
+<!--                            <p>-->
+<!--                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.-->
+<!--                                Nesciunt exercitationem iste, voluptatum, quia explicabo-->
+<!--                                laboriosam rem adipisci-->
+<!--                            </p>-->
+<!--                            <a class="button" href="#">-->
+<!--                                Find out more-->
+<!--                                <span class="material-symbols-outlined">-->
+<!--                      arrow_right_alt-->
+<!--                    </span>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="card swiper-slide">-->
+<!--                        <img-->
+<!--                                alt=""-->
+<!--                                src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80"-->
+<!--                        />-->
+<!--                        <div class="card-content">-->
+<!--                            <h2>Card Heading</h2>-->
+<!--                            <p>-->
+<!--                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.-->
+<!--                                Nesciunt exercitationem iste, voluptatum, quia explicabo-->
+<!--                                laboriosam rem adipisci-->
+<!--                            </p>-->
+<!--                            <a class="button" href="#">-->
+<!--                                Find out more-->
+<!--                                <span class="material-symbols-outlined">-->
+<!--                      arrow_right_alt-->
+<!--                    </span>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="card swiper-slide">-->
+<!--                        <img-->
+<!--                                alt=""-->
+<!--                                src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80"-->
+<!--                        />-->
+<!--                        <div class="card-content">-->
+<!--                            <h2>Card Heading</h2>-->
+<!--                            <p>-->
+<!--                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.-->
+<!--                                Nesciunt exercitationem iste, voluptatum, quia explicabo-->
+<!--                                laboriosam rem adipisci-->
+<!--                            </p>-->
+<!--                            <a class="button" href="#">-->
+<!--                                Find out more-->
+<!--                                <span class="material-symbols-outlined">-->
+<!--                      arrow_right_alt-->
+<!--                    </span>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="card swiper-slide">-->
+<!--                        <img-->
+<!--                                alt=""-->
+<!--                                src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80"-->
+<!--                        />-->
+<!--                        <div class="card-content">-->
+<!--                            <h2>Card Heading</h2>-->
+<!--                            <p>-->
+<!--                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.-->
+<!--                                Nesciunt exercitationem iste, voluptatum, quia explicabo-->
+<!--                                laboriosam rem adipisci-->
+<!--                            </p>-->
+<!--                            <a class="button" href="#">-->
+<!--                                Find out more-->
+<!--                                <span class="material-symbols-outlined">-->
+<!--                      arrow_right_alt-->
+<!--                    </span>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="card swiper-slide">-->
+<!--                        <img-->
+<!--                                alt=""-->
+<!--                                src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80"-->
+<!--                        />-->
+<!--                        <div class="card-content">-->
+<!--                            <h2>Card Heading</h2>-->
+<!--                            <p>-->
+<!--                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.-->
+<!--                                Nesciunt exercitationem iste, voluptatum, quia explicabo-->
+<!--                                laboriosam rem adipisci-->
+<!--                            </p>-->
+<!--                            <a class="button" href="#">-->
+<!--                                Find out more-->
+<!--                                <span class="material-symbols-outlined">-->
+<!--                      arrow_right_alt-->
+<!--                    </span>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="card swiper-slide">-->
+<!--                        <img-->
+<!--                                alt=""-->
+<!--                                src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80"-->
+<!--                        />-->
+<!--                        <div class="card-content">-->
+<!--                            <h2>Card Heading</h2>-->
+<!--                            <p>-->
+<!--                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.-->
+<!--                                Nesciunt exercitationem iste, voluptatum, quia explicabo-->
+<!--                                laboriosam rem adipisci-->
+<!--                            </p>-->
+<!--                            <a class="button" href="#">-->
+<!--                                Find out more-->
+<!--                                <span class="material-symbols-outlined">-->
+<!--                      arrow_right_alt-->
+<!--                    </span>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="card swiper-slide">-->
+<!--                        <img-->
+<!--                                alt=""-->
+<!--                                src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80"-->
+<!--                        />-->
+<!--                        <div class="card-content">-->
+<!--                            <h2>Card Heading</h2>-->
+<!--                            <p>-->
+<!--                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.-->
+<!--                                Nesciunt exercitationem iste, voluptatum, quia explicabo-->
+<!--                                laboriosam rem adipisci-->
+<!--                            </p>-->
+<!--                            <a class="button" href="#">-->
+<!--                                Find out more-->
+<!--                                <span class="material-symbols-outlined">-->
+<!--                      arrow_right_alt-->
+<!--                    </span>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+
+            <div
+                    class="swiper-button-next swiper-button-next-story swiper-navBtn"
+            ></div>
+            <div
+                    class="swiper-button-prev swiper-button-prev-story swiper-navBtn"
+            ></div>
+            <div class="swiper-pagination swiper-pagination-story"></div>
+        </div>
+    </section>
+    <!-- End Story Section -->
+
+    <a class="scroll-to-top add rounded" href="{% url 'story_add' %}">Add</a>
+</main>
+
+<footer>
+    <!-- 版权申明 -->
+    <img alt="版权申明" src="{% static 'pages/images/copyright.png' %}"/>
+</footer>
+
+<!-- Swiper JS -->
+<script src="{% static 'pages/scripts/swiper-bundle.min.js' %}"></script>
+
+<script>
+      var swiperProject = new Swiper(".slide-content-project", {
+        slidesPerView: 3,
+        spaceBetween: 25,
+        loop: true,
+        centerSlide: "true",
+        fade: "true",
+        grabCursor: "true",
+        pagination: {
+          el: ".swiper-pagination-project",
+          clickable: true,
+          dynamicBullets: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next-project",
+          prevEl: ".swiper-button-prev-project",
+        },
+
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          520: {
+            slidesPerView: 2,
+          },
+          950: {
+            slidesPerView: 3,
+          },
+        },
+      });
+
+      var swiperStory = new Swiper(".slide-content-story", {
+        slidesPerView: 3,
+        spaceBetween: 25,
+        loop: true,
+        centerSlide: "true",
+        fade: "true",
+        grabCursor: "true",
+        pagination: {
+          el: ".swiper-pagination-story",
+          clickable: true,
+          dynamicBullets: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next-story",
+          prevEl: ".swiper-button-prev-story",
+        },
+
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          520: {
+            slidesPerView: 2,
+          },
+          950: {
+            slidesPerView: 3,
+          },
+        },
+      });
+
+</script>
+
+{% endblock content %}
